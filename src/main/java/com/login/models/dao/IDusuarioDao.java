@@ -7,9 +7,9 @@ import com.login.models.entity.Usuario;
 
 public interface IDusuarioDao extends CrudRepository<Usuario, Long>{
 	
-	 public Usuario findByUsername(String username);
+	 public Usuario findByCedula(String cedula);
 	 
-	 @Query("select u from Usuario u where u.username=?1 ")
-	 public Usuario findByUsername2(String username);
+	 @Query("select u from Usuario u where u.cedula=?1 ")
+	 public Usuario findByCedula2(String cedula);
 
 }

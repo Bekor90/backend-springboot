@@ -31,7 +31,7 @@ public class UsuarioService implements UserDetailsService{
 		
 		Logger log = LoggerFactory.getLogger(UsuarioService.class);
 		
-		Usuario usuario = usuarioDao.findByUsername(username);
+		Usuario usuario = usuarioDao.findByCedula(username);
 		
 		if(usuario == null) {
 			log.error("Error login: no existe el usuario '"+username+"' en el sistema");
@@ -44,7 +44,7 @@ public class UsuarioService implements UserDetailsService{
 				.peek(authority -> log.info("Role: "+ authority.getAuthority()))
 				.collect(Collectors.toList());
 		
-		return new User(usuario.getUsername(), usuario.getPassword(), usuario.getEnabled(), true, true, true, authorities);
+		return new User(usuario.getCedula(), usuario.getPassword(), usuario.getEnabled(), true, true, true, authorities);
 	}
 	
 	
