@@ -1,12 +1,15 @@
 package com.login.models.entity;
 
 import java.io.Serializable;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -19,6 +22,9 @@ public class Role implements Serializable{
 	
 	@Column(unique=true, length=20)
 	private String nombre;
+	
+	/*@ManyToMany(cascade = CascadeType.ALL)
+	private List<Usuario> usuarios;*/
 
 	public Long getId() {
 		return id;
@@ -36,7 +42,15 @@ public class Role implements Serializable{
 		this.nombre = nombre;
 	}
 
-	/**
+	/**public List<Usuario> getUsuarios() {
+		return usuarios;
+	}
+
+	public void setUsuarios(List<Usuario> usuarios) {
+		this.usuarios = usuarios;
+	}
+
+	
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;

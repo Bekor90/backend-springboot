@@ -44,7 +44,7 @@ public class Usuario implements Serializable{
 	private String barrio;
 	private String url;
 	
-	@ManyToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+	@ManyToMany(fetch=FetchType.LAZY, cascade=CascadeType.MERGE)
 	private List<Role> roles;
 
 	public Long getId() {
